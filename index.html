@@ -3,33 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chandu Soren | Senior AWS Data Engineer & Cloud Solutions Architect</title>
-  <meta name="description" content="Portfolio of Chandu Soren - Senior AWS Data Engineer, Cloud Solutions Architect, IIT Bombay Alum. Enterprise pipelines, PySpark, and Serverless Lakehouse architectures." />
+  <title>Chandu Soren | Senior Data Engineer (PySpark, AWS, SQL)</title>
+  <meta name="description" content="Portfolio of Chandu Soren - Senior Data Engineer, IIT Bombay Alum. PySpark, Medallion Lakehouses, BigQuery, SQL, and Production Data Pipelines." />
 
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
   <style>
     :root {
-      --bg: #090d16;
-      --card-bg: rgba(18, 24, 38, 0.7);
+      --bg: #0a0e17;
+      --card-bg: rgba(16, 23, 38, 0.75);
       --card-border: rgba(255, 255, 255, 0.08);
-      --card-hover: rgba(30, 41, 59, 0.85);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --text-dim: #64748b;
       --primary: #38bdf8;
-      --primary-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      --de-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
       --accent-cyan: #06b6d4;
-      --accent-purple: #a855f7;
-      --accent-emerald: #10b981;
-      --accent-amber: #f59e0b;
-      --glass-glow: 0 0 50px -10px rgba(56, 189, 248, 0.15);
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --accent-spark: #e25a1c;
+      --accent-sql: #f59e0b;
+      --accent-green: #10b981;
+      --code-bg: #050811;
+      --transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -43,7 +42,7 @@
       position: relative;
     }
 
-    /* Ambient Dynamic Glowing Background Orbs */
+    /* Ambient Glow */
     .ambient-glow {
       position: fixed;
       top: 0; left: 0; width: 100vw; height: 100vh;
@@ -55,40 +54,37 @@
       position: absolute;
       border-radius: 50%;
       filter: blur(120px);
-      opacity: 0.35;
-      animation: floatOrb 18s ease-in-out infinite alternate;
+      opacity: 0.28;
+      animation: floatOrb 20s ease-in-out infinite alternate;
     }
-    .orb-1 { width: 500px; height: 500px; background: #38bdf8; top: -100px; left: -100px; }
-    .orb-2 { width: 600px; height: 600px; background: #818cf8; top: 35%; right: -150px; animation-duration: 22s; }
-    .orb-3 { width: 450px; height: 450px; background: #c084fc; bottom: -50px; left: 20%; animation-duration: 25s; }
+    .orb-1 { width: 520px; height: 520px; background: #06b6d4; top: -120px; left: -100px; }
+    .orb-2 { width: 580px; height: 580px; background: #6366f1; top: 40%; right: -150px; }
+    .orb-3 { width: 420px; height: 420px; background: #e25a1c; bottom: -80px; left: 25%; }
 
     @keyframes floatOrb {
       0% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(50px, 40px) scale(1.1); }
-      100% { transform: translate(-30px, 70px) scale(0.95); }
+      100% { transform: translate(40px, 60px) scale(1.08); }
     }
 
-    /* Subtle Grid Overlay */
     .bg-grid {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
       background-size: 32px 32px;
       pointer-events: none;
       z-index: 1;
-      opacity: 0.4;
+      opacity: 0.5;
     }
 
     /* Navigation */
     nav {
       position: sticky;
       top: 0;
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      background: rgba(9, 13, 22, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(10, 14, 23, 0.85);
       border-bottom: 1px solid var(--card-border);
       z-index: 100;
-      transition: var(--transition);
     }
     .nav-container {
       max-width: 1200px;
@@ -105,11 +101,10 @@
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      letter-spacing: -0.5px;
+      gap: 0.7rem;
     }
     .brand-badge {
-      background: var(--primary-gradient);
+      background: var(--de-gradient);
       color: #fff;
       font-size: 0.75rem;
       padding: 0.2rem 0.6rem;
@@ -124,20 +119,9 @@
       font-size: 0.95rem;
       font-weight: 500;
       transition: var(--transition);
-      position: relative;
     }
     .nav-links a:hover { color: var(--primary); }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      width: 0; height: 2px;
-      bottom: -4px; left: 0;
-      background: var(--primary-gradient);
-      transition: width 0.3s ease;
-    }
-    .nav-links a:hover::after { width: 100%; }
 
-    /* Content Wrapper */
     .container {
       position: relative;
       z-index: 2;
@@ -146,31 +130,30 @@
       padding: 2rem 1.8rem;
     }
 
-    /* Hero Section */
+    /* Hero */
     .hero {
-      padding: 6rem 0 5rem;
+      padding: 5.5rem 0 4rem;
       display: flex;
       flex-direction: column;
-      gap: 1.8rem;
-      position: relative;
+      gap: 1.6rem;
     }
-    .status-badge {
+    .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
-      background: rgba(16, 185, 129, 0.12);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      color: var(--accent-emerald);
+      background: rgba(6, 182, 212, 0.12);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      color: var(--accent-cyan);
       padding: 0.4rem 1.1rem;
       border-radius: 30px;
       font-size: 0.85rem;
       font-weight: 600;
       width: fit-content;
-      backdrop-filter: blur(10px);
+      font-family: 'JetBrains Mono', monospace;
     }
     .pulse-dot {
       width: 8px; height: 8px;
-      background-color: var(--accent-emerald);
+      background-color: var(--accent-green);
       border-radius: 50%;
       box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
       animation: pulseGreen 1.8s infinite;
@@ -180,34 +163,27 @@
       70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
       100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
-
     .hero-title {
-      font-size: 4rem;
+      font-size: 3.8rem;
       font-weight: 800;
-      line-height: 1.12;
+      line-height: 1.15;
       letter-spacing: -1.5px;
     }
     .gradient-text {
-      background: var(--primary-gradient);
+      background: var(--de-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      display: inline-block;
     }
-    .hero-subtitle {
-      font-size: 1.25rem;
+    .hero-desc {
+      font-size: 1.22rem;
       color: var(--text-muted);
-      max-width: 820px;
+      max-width: 840px;
       line-height: 1.7;
     }
-    .hero-subtitle strong { color: var(--text-main); font-weight: 600; }
+    .hero-desc strong { color: var(--text-main); font-weight: 600; }
 
-    /* CTA Buttons */
-    .cta-row {
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-      margin-top: 0.8rem;
-    }
+    /* CTA Row */
+    .cta-row { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-top: 0.5rem; }
     .btn {
       padding: 0.85rem 1.8rem;
       border-radius: 10px;
@@ -218,180 +194,147 @@
       align-items: center;
       gap: 0.65rem;
       transition: var(--transition);
-      position: relative;
-      overflow: hidden;
     }
-    .btn-gradient {
-      background: var(--primary-gradient);
-      color: #0b0f19;
+    .btn-primary {
+      background: var(--de-gradient);
+      color: #050811;
       font-weight: 700;
-      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.35);
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.35);
     }
-    .btn-gradient:hover {
-      box-shadow: 0 6px 28px rgba(129, 140, 248, 0.5);
+    .btn-primary:hover {
+      box-shadow: 0 6px 26px rgba(59, 130, 246, 0.5);
       transform: translateY(-2px);
     }
-    .btn-glass {
+    .btn-secondary {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--card-border);
       color: var(--text-main);
       backdrop-filter: blur(8px);
     }
-    .btn-glass:hover {
+    .btn-secondary:hover {
       background: rgba(255, 255, 255, 0.1);
       border-color: var(--primary);
       color: var(--primary);
       transform: translateY(-2px);
     }
 
-    /* Key Numbers / Stats Banner */
-    .stats-row {
+    /* Core DE Metrics */
+    .de-metrics-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.4rem;
       margin: 2rem 0 5rem;
     }
-    .stat-card {
+    .de-metric-box {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 14px;
       padding: 1.8rem;
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(10px);
       transition: var(--transition);
       position: relative;
-      overflow: hidden;
     }
-    .stat-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 3px;
-      background: var(--primary-gradient);
-      opacity: 0;
-      transition: var(--transition);
+    .de-metric-box:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.2);
     }
-    .stat-card:hover {
-      border-color: rgba(56, 189, 248, 0.4);
-      transform: translateY(-5px);
-      box-shadow: var(--glass-glow);
-    }
-    .stat-card:hover::before { opacity: 1; }
-    .stat-number {
+    .de-metric-num {
       font-size: 2.6rem;
       font-weight: 800;
       font-family: 'JetBrains Mono', monospace;
-      background: var(--primary-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 1;
-      margin-bottom: 0.5rem;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
     }
-    .stat-label {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      font-weight: 500;
-    }
+    .de-metric-title { font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.2rem; }
+    .de-metric-detail { font-size: 0.88rem; color: var(--text-muted); }
 
-    /* Sections Shared */
-    section { padding: 4.5rem 0; }
-    .section-header {
-      margin-bottom: 3rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
+    /* Section Headers */
+    section { padding: 4rem 0; }
+    .section-header { margin-bottom: 2.8rem; }
     .section-eyebrow {
       font-size: 0.85rem;
       font-family: 'JetBrains Mono', monospace;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      color: var(--primary);
+      color: var(--accent-cyan);
       font-weight: 700;
     }
-    .section-title {
-      font-size: 2.2rem;
-      font-weight: 800;
-      letter-spacing: -0.8px;
-    }
+    .section-title { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.8px; margin-top: 0.4rem; }
 
-    /* Featured Project Spotlight */
-    .spotlight-card {
-      background: linear-gradient(145deg, rgba(22, 30, 48, 0.8) 0%, rgba(13, 18, 30, 0.95) 100%);
-      border: 1px solid rgba(56, 189, 248, 0.25);
+    /* DE Deep Dive Project Showcase */
+    .project-de-card {
+      background: linear-gradient(145deg, rgba(16, 23, 38, 0.85) 0%, rgba(9, 13, 22, 0.95) 100%);
+      border: 1px solid rgba(6, 182, 212, 0.3);
       border-radius: 20px;
       padding: 3rem;
-      position: relative;
-      overflow: hidden;
       backdrop-filter: blur(14px);
-      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
       transition: var(--transition);
     }
-    .spotlight-card:hover {
-      border-color: rgba(129, 140, 248, 0.5);
-      box-shadow: 0 20px 50px -10px rgba(56, 189, 248, 0.2);
+    .project-de-card:hover {
+      border-color: rgba(59, 130, 246, 0.6);
+      box-shadow: 0 20px 50px -10px rgba(6, 182, 212, 0.15);
     }
-    .spotlight-badge {
-      background: rgba(56, 189, 248, 0.15);
-      color: var(--primary);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      padding: 0.35rem 0.9rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
+    .project-tags-top { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+    .proj-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
       font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: 'JetBrains Mono', monospace;
-      margin-bottom: 1.5rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
     }
-    .project-name {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      line-height: 1.25;
-    }
-    .project-desc {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      line-height: 1.7;
-      margin-bottom: 2rem;
-      max-width: 900px;
-    }
+    .proj-badge-blue { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .proj-badge-orange { background: rgba(226, 90, 28, 0.15); color: #fb923c; border: 1px solid rgba(226, 90, 28, 0.3); }
+    .proj-badge-green { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
 
-    /* Architecture Visual Highlight Box */
-    .arch-preview {
-      background: rgba(10, 14, 24, 0.9);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.88rem;
-      color: #7dd3fc;
-      overflow-x: auto;
-      border-left: 4px solid var(--primary);
-    }
-    .arch-preview code { color: #e2e8f0; }
+    .project-de-title { font-size: 2.1rem; font-weight: 800; margin-bottom: 1rem; }
+    .project-de-lead { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem; line-height: 1.7; }
 
-    /* Highlights 3-Col */
-    .highlight-grid {
+    /* Medallion Architecture Table / Interactive Layout */
+    .medallion-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.2rem;
       margin-bottom: 2.2rem;
     }
-    .highlight-box {
+    .medallion-box {
+      background: var(--code-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.6rem;
+      position: relative;
+    }
+    .medallion-box.raw { border-top: 4px solid #94a3b8; }
+    .medallion-box.curated { border-top: 4px solid #38bdf8; }
+    .medallion-box.agg { border-top: 4px solid #a855f7; }
+
+    .layer-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .layer-name { font-size: 1.2rem; font-weight: 700; color: var(--text-main); margin: 0.3rem 0 0.8rem; }
+    .layer-list { list-style: none; font-size: 0.88rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.5rem; }
+    .layer-list li { display: flex; align-items: flex-start; gap: 0.5rem; }
+    .layer-list li i { font-size: 0.75rem; margin-top: 0.3rem; color: var(--primary); }
+
+    /* Code & Engineering Highlights Grid */
+    .de-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .de-spec-item {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--card-border);
       border-radius: 10px;
       padding: 1.2rem;
-      transition: var(--transition);
     }
-    .highlight-box:hover {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: var(--primary);
-      transform: translateY(-2px);
-    }
-    .highlight-box h4 {
+    .de-spec-item h4 {
       font-size: 0.95rem;
       color: var(--text-main);
       margin-bottom: 0.4rem;
@@ -399,34 +342,16 @@
       align-items: center;
       gap: 0.5rem;
     }
-    .highlight-box h4 i { color: var(--primary); font-size: 0.9rem; }
-    .highlight-box p { font-size: 0.88rem; color: var(--text-muted); }
+    .de-spec-item h4 i { color: var(--accent-cyan); }
+    .de-spec-item p { font-size: 0.88rem; color: var(--text-muted); }
 
-    /* Tag Cloud */
-    .tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
-    .tech-tag {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--card-border);
-      color: var(--text-muted);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.82rem;
-      padding: 0.35rem 0.8rem;
-      border-radius: 6px;
-      transition: var(--transition);
-    }
-    .tech-tag:hover {
-      color: var(--primary);
-      border-color: var(--primary);
-      background: rgba(56, 189, 248, 0.08);
-    }
-
-    /* Skills Grid */
-    .skills-container {
+    /* Skill Pillars (Data Engineering Centered) */
+    .skills-pillar-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.8rem;
+      gap: 1.6rem;
     }
-    .skill-category {
+    .pillar-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 16px;
@@ -434,18 +359,12 @@
       backdrop-filter: blur(12px);
       transition: var(--transition);
     }
-    .skill-category:hover {
-      border-color: rgba(129, 140, 248, 0.4);
+    .pillar-card:hover {
+      border-color: var(--primary);
       transform: translateY(-4px);
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
     }
-    .skill-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.4rem;
-    }
-    .skill-icon {
+    .pillar-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.4rem; }
+    .pillar-icon {
       width: 48px; height: 48px;
       border-radius: 10px;
       display: flex;
@@ -453,31 +372,29 @@
       justify-content: center;
       font-size: 1.3rem;
     }
-    .icon-blue { background: rgba(56, 189, 248, 0.15); color: var(--primary); border: 1px solid rgba(56, 189, 248, 0.3); }
-    .icon-purple { background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); border: 1px solid rgba(168, 85, 247, 0.3); }
-    .icon-emerald { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
-    .skill-category h3 { font-size: 1.2rem; font-weight: 700; }
-    .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
-    .skill-list li {
-      font-size: 0.95rem;
+    .icon-spark { background: rgba(226, 90, 28, 0.15); color: var(--accent-spark); border: 1px solid rgba(226, 90, 28, 0.3); }
+    .icon-sql { background: rgba(245, 158, 11, 0.15); color: var(--accent-sql); border: 1px solid rgba(245, 158, 11, 0.3); }
+    .icon-lake { background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); border: 1px solid rgba(6, 182, 212, 0.3); }
+
+    .pillar-title { font-size: 1.25rem; font-weight: 700; }
+    .pillar-items { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
+    .pillar-items li {
+      font-size: 0.94rem;
       color: var(--text-muted);
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 0.7rem;
     }
-    .skill-list li i { color: var(--accent-emerald); font-size: 0.85rem; }
+    .pillar-items li i { color: var(--accent-green); font-size: 0.8rem; margin-top: 0.35rem; }
 
-    /* Experience Timeline */
+    /* Experience Section */
     .timeline {
       position: relative;
       border-left: 2px solid rgba(255, 255, 255, 0.1);
       margin-left: 1.5rem;
       padding-left: 2rem;
     }
-    .timeline-node {
-      position: relative;
-      margin-bottom: 3.5rem;
-    }
+    .timeline-node { position: relative; margin-bottom: 3.5rem; }
     .timeline-node:last-child { margin-bottom: 0; }
     .timeline-marker {
       position: absolute;
@@ -486,20 +403,15 @@
       width: 16px; height: 16px;
       border-radius: 50%;
       background: var(--bg);
-      border: 3px solid var(--primary);
-      box-shadow: 0 0 12px var(--primary);
+      border: 3px solid var(--accent-cyan);
+      box-shadow: 0 0 10px var(--accent-cyan);
     }
     .timeline-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 14px;
-      padding: 2rem;
+      padding: 2.2rem;
       backdrop-filter: blur(12px);
-      transition: var(--transition);
-    }
-    .timeline-card:hover {
-      border-color: rgba(56, 189, 248, 0.35);
-      transform: translateX(4px);
     }
     .timeline-role {
       font-size: 1.3rem;
@@ -510,12 +422,7 @@
       flex-wrap: wrap;
       gap: 0.5rem;
     }
-    .timeline-company {
-      color: var(--primary);
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-top: 0.2rem;
-    }
+    .timeline-company { color: var(--accent-cyan); font-size: 1.05rem; font-weight: 600; margin-top: 0.2rem; }
     .timeline-date {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.85rem;
@@ -523,7 +430,6 @@
       background: rgba(255, 255, 255, 0.05);
       padding: 0.2rem 0.6rem;
       border-radius: 6px;
-      width: fit-content;
     }
     .timeline-bullets {
       margin-top: 1.2rem;
@@ -537,20 +443,17 @@
 
     /* Recruiter Action Banner */
     .recruiter-banner {
-      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
-      border: 1px solid rgba(56, 189, 248, 0.3);
+      background: linear-gradient(135deg, rgba(20, 30, 48, 0.9) 0%, rgba(10, 16, 28, 0.95) 100%);
+      border: 1px solid rgba(6, 182, 212, 0.35);
       border-radius: 20px;
       padding: 3.5rem 2.5rem;
       text-align: center;
       margin: 4rem 0 2rem;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--glass-glow);
+      box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
     }
     .recruiter-banner h2 { font-size: 2.4rem; font-weight: 800; margin-bottom: 1rem; }
-    .recruiter-banner p { color: var(--text-muted); font-size: 1.15rem; max-width: 650px; margin: 0 auto 2rem; }
+    .recruiter-banner p { color: var(--text-muted); font-size: 1.15rem; max-width: 680px; margin: 0 auto 2rem; }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 3rem 1.5rem;
@@ -560,21 +463,22 @@
       position: relative;
       z-index: 2;
     }
-    footer a { color: var(--primary); text-decoration: none; }
+    footer a { color: var(--accent-cyan); text-decoration: none; }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .hero-title { font-size: 2.6rem; }
       .nav-links { display: none; }
-      .spotlight-card { padding: 1.8rem; }
+      .project-de-card { padding: 1.8rem; }
       .timeline { margin-left: 0.5rem; padding-left: 1.2rem; }
       .timeline-marker { left: calc(-1.2rem - 9px); }
     }
   </style>
+
+  <!-- 100% Free Lifetime Analytics via GoatCounter -->
+  <script data-goatcounter="https://cs-iitb.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
-  <!-- Ambient Light Effect -->
   <div class="ambient-glow">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
@@ -587,16 +491,16 @@
     <div class="nav-container">
       <a href="#" class="brand">
         <span>Chandu Soren</span>
-        <span class="brand-badge">IIT BOMBAY</span>
+        <span class="brand-badge">DATA ENGINEER</span>
       </a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Competencies</a></li>
+        <li><a href="#lakehouse">Lakehouse Architecture</a></li>
+        <li><a href="#competencies">Technical Pillars</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a href="https://github.com/CS-IITB" target="_blank" class="btn btn-glass" style="padding: 0.5rem 1.1rem; font-size: 0.85rem;">
+      <a href="https://github.com/CS-IITB" target="_blank" class="btn btn-secondary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem;">
         <i class="fa-brands fa-github"></i> GitHub
       </a>
     </div>
@@ -606,177 +510,204 @@
 
     <!-- Hero Section -->
     <header class="hero" id="about">
-      <div class="status-badge" data-aos="fade-down">
-        <span class="pulse-dot"></span> Available for Senior AWS Data Engineering Opportunities
+      <div class="hero-badge" data-aos="fade-down">
+        <span class="pulse-dot"></span> Senior Data Engineer • Distributed Data Pipelines & Spark
       </div>
 
       <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
-        Designing <span class="gradient-text">Fault-Tolerant Lakehouses</span> & Distributed Cloud Pipelines.
+        Transforming High-Volume Raw Data into <span class="gradient-text">Production Analytics Marts.</span>
       </h1>
 
-      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
-        <strong>Applications Development Programmer Analyst / Systems Analyst</strong> with <strong>4+ years</strong> of expertise architecting high-throughput data solutions in financial services and transit analytics. Dual Degree holder from <strong>IIT Bombay</strong> specializing in PySpark, AWS Glue, and event-driven serverless orchestration.
+      <p class="hero-desc" data-aos="fade-up" data-aos-delay="200">
+        <strong>Applications Development Programmer Analyst / Systems Analyst</strong> with <strong>4+ years</strong> of production IT experience processing large-scale datasets. Dual Degree holder from <strong>IIT Bombay</strong> specializing in <strong>PySpark</strong> distributed computing, <strong>Medallion Lakehouse architectures</strong>, columnar data modeling (Parquet), SQL optimization, and automated quality quarantine frameworks.
       </p>
 
       <div class="cta-row" data-aos="fade-up" data-aos-delay="300">
-        <a href="#projects" class="btn btn-gradient">
-          <i class="fa-solid fa-layer-group"></i> View Flagship Architecture
+        <button class="btn btn-primary" onclick="copyRecruiterSummary()" id="copySummaryBtn">
+          <i class="fa-solid fa-clipboard-check"></i> Copy Recruiter Summary
+        </button>
+        <a href="#lakehouse" class="btn btn-secondary">
+          <i class="fa-solid fa-database"></i> Explore Medallion Pipeline
         </a>
-        <a href="https://github.com/CS-IITB/aws-event-driven-data-pipeline" target="_blank" class="btn btn-glass">
-          <i class="fa-brands fa-github"></i> Repository Code
+        <a href="https://github.com/CS-IITB/aws-event-driven-data-pipeline" target="_blank" class="btn btn-secondary">
+          <i class="fa-brands fa-github"></i> View Pipeline Repository
         </a>
-        <a href="https://www.linkedin.com" target="_blank" class="btn btn-glass">
+        <a href="https://www.linkedin.com" target="_blank" class="btn btn-secondary">
           <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
         </a>
       </div>
     </header>
 
-    <!-- Key Production Metrics -->
-    <div class="stats-row" data-aos="fade-up">
-      <div class="stat-card">
-        <div class="stat-number">35M+</div>
-        <div class="stat-label">Records Processed Per Batch</div>
+    <!-- Core Data Engineering Metrics -->
+    <div class="de-metrics-grid" data-aos="fade-up">
+      <div class="de-metric-box">
+        <div class="de-metric-num">35M+</div>
+        <div class="de-metric-title">Clean Records / Batch</div>
+        <div class="de-metric-detail">Processed via PySpark Spark ETL jobs with automated quarantine branching.</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">~50%</div>
-        <div class="stat-label">Glue DPU Cost Reduction</div>
+      <div class="de-metric-box">
+        <div class="de-metric-num">10/10</div>
+        <div class="de-metric-title">Data Quality Assertions</div>
+        <div class="de-metric-detail">Zero corrupt data leaks into analytics marts via tag-and-quarantine logic.</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">~60%</div>
-        <div class="stat-label">Long-Term S3 Storage Savings</div>
+      <div class="de-metric-box">
+        <div class="de-metric-num">~50%</div>
+        <div class="de-metric-title">DPU Compute Efficiency</div>
+        <div class="de-metric-detail">Optimized Spark worker allocation (G.1X) beating strict delivery SLAs.</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">10/10</div>
-        <div class="stat-label">Deterministic DQ Validations</div>
+      <div class="de-metric-box">
+        <div class="de-metric-num">~60%</div>
+        <div class="de-metric-title">Storage TCO Savings</div>
+        <div class="de-metric-detail">Partition-pruned Snappy Parquet storage paired with S3 auto-tiering.</div>
       </div>
     </div>
 
-    <!-- Flagship Architecture Spotlight -->
-    <section id="projects">
+    <!-- Flagship DE Project: Medallion Architecture -->
+    <section id="lakehouse">
       <div class="section-header" data-aos="fade-up">
-        <span class="section-eyebrow">Enterprise Portfolio Showcase</span>
-        <h2 class="section-title">Flagship Cloud Project</h2>
+        <span class="section-eyebrow">Production Lakehouse Project</span>
+        <h2 class="section-title">End-to-End Medallion Lakehouse Pipeline</h2>
       </div>
 
-      <div class="spotlight-card" data-aos="fade-up">
-        <div class="spotlight-badge">
-          <i class="fa-solid fa-bolt"></i> EVENT-DRIVEN MEDALLION LAKEHOUSE
+      <div class="project-de-card" data-aos="fade-up">
+        <div class="project-tags-top">
+          <span class="proj-badge proj-badge-orange"><i class="fa-solid fa-fire"></i> Apache Spark / PySpark</span>
+          <span class="proj-badge proj-badge-blue"><i class="fa-solid fa-layer-group"></i> Medallion Architecture</span>
+          <span class="proj-badge proj-badge-green"><i class="fa-solid fa-file-code"></i> Snappy Parquet</span>
         </div>
 
-        <h3 class="project-name">
-          Serverless NYC TLC Mobility & Transit Analytics Platform
+        <h3 class="project-de-title">
+          NYC TLC High-Volume Mobility Lakehouse & Analytics Marts
         </h3>
 
-        <p class="project-desc">
-          Architected a zero-idle-cost, event-driven data pipeline handling 35M+ high-volume for-hire vehicle records using AWS Glue, Step Functions, and Lambda. Transformed multi-gigabyte raw ingestion batches into query-optimized Snappy Parquet analytics marts with automated quarantine isolation and full DynamoDB execution audit trails.
+        <p class="project-de-lead">
+          Designed and engineered an automated, batch-driven Medallion Lakehouse pipeline processing 35M+ trip records. Built a deterministic PySpark data validation framework separating dirty data into dedicated quarantine partitions, enriched clean data with taxi zone dimension lookups, and generated aggregated analytical data marts for Amazon Athena SQL querying.
         </p>
 
-        <!-- Dynamic Architecture Text Preview -->
-        <div class="arch-preview">
-          <code>[S3 Raw] &rarr; (ingestion.done marker) &rarr; [AWS Lambda] &rarr; [Step Functions DAG] &rarr; [PySpark Glue 5.1 (10 DQ Checks + Zone Broadcast Joins)] &rarr; [S3 Curated & Quarantine] &rarr; [Athena SQL + DynamoDB Audit]</code>
+        <!-- Medallion Layer Breakdown -->
+        <div class="medallion-container">
+          <!-- Bronze / Raw -->
+          <div class="medallion-box raw">
+            <span class="layer-tag">Bronze Tier</span>
+            <div class="layer-name">Raw Ingestion</div>
+            <ul class="layer-list">
+              <li><i class="fa-solid fa-arrow-right"></i> 90M–120M multi-month Parquet records.</li>
+              <li><i class="fa-solid fa-arrow-right"></i> Raw taxi zone lookup dimension CSVs.</li>
+              <li><i class="fa-solid fa-arrow-right"></i> Streaming multipart HTTP uploads into S3.</li>
+              <li><i class="fa-solid fa-arrow-right"></i> <code>ingestion.done</code> marker file synchronization.</li>
+            </ul>
+          </div>
+
+          <!-- Silver / Curated -->
+          <div class="medallion-box curated">
+            <span class="layer-tag">Silver Tier</span>
+            <div class="layer-name">Curated & Quarantine</div>
+            <ul class="layer-list">
+              <li><i class="fa-solid fa-arrow-right"></i> Filtered Lyft dataset (35M+ trips).</li>
+              <li><i class="fa-solid fa-arrow-right"></i> 10 Data Quality rules tagging corrupt rows.</li>
+              <li><i class="fa-solid fa-arrow-right"></i> Quarantined records isolated to <code>rejected/</code>.</li>
+              <li><i class="fa-solid fa-arrow-right"></i> Broadcast joins with Zone lookup dimensions.</li>
+              <li><i class="fa-solid fa-arrow-right"></i> Partitioned by <code>pickup_date</code> in Parquet.</li>
+            </ul>
+          </div>
+
+          <!-- Gold / Aggregated -->
+          <div class="medallion-box agg">
+            <span class="layer-tag">Gold Tier</span>
+            <div class="layer-name">Analytical Marts</div>
+            <ul class="layer-list">
+              <li><i class="fa-solid fa-arrow-right"></i> <strong>Daily Borough Summary:</strong> Revenue & miles.</li>
+              <li><i class="fa-solid fa-arrow-right"></i> <strong>Hourly Pattern Summary:</strong> Peak demand & tip %.</li>
+              <li><i class="fa-solid fa-arrow-right"></i> <strong>Route Matrix:</strong> High-traffic OD zone pairs.</li>
+              <li><i class="fa-solid fa-arrow-right"></i> Athena-ready for sub-second SQL queries.</li>
+            </ul>
+          </div>
         </div>
 
-        <!-- Highlights Grid -->
-        <div class="highlight-grid">
-          <div class="highlight-box">
-            <h4><i class="fa-solid fa-microchip"></i> Marker-File Orchestration</h4>
-            <p>Employs an S3 PUT event filter on <code>ingestion.done</code>, eliminating race conditions and redundant execution across multi-file ingests.</p>
+        <!-- Engineering Specifications Grid -->
+        <div class="de-specs-grid">
+          <div class="de-spec-item">
+            <h4><i class="fa-solid fa-bolt"></i> Tag-and-Quarantine Cleanse</h4>
+            <p>Single DAG pass tagging 10 failure conditions (zero miles, fare spikes, timestamp inversions); writes clean rows to Curated and bad rows to S3 quarantine.</p>
           </div>
-          <div class="highlight-box">
-            <h4><i class="fa-solid fa-shield-halved"></i> Split-Branch Quarantine</h4>
-            <p>Evaluates 10 business rules in a single Spark DAG; isolates corrupt rows to <code>rejected/</code> with 15-day automated TTL expiration.</p>
+          <div class="de-spec-item">
+            <h4><i class="fa-solid fa-network-wired"></i> Shuffle Elimination</h4>
+            <p>Utilized Spark <code>broadcast()</code> joins for dimension tables (~265 rows), eliminating expensive network shuffling across cluster nodes.</p>
           </div>
-          <div class="highlight-box">
-            <h4><i class="fa-solid fa-chart-line"></i> DPU Performance Rightsizing</h4>
-            <p>Benchmarked G.1X vs G.2X workers; achieved full batch SLA compliance with 2x G.1X workers, halving billable cloud compute overhead.</p>
+          <div class="de-spec-item">
+            <h4><i class="fa-solid fa-clock-rotate-left"></i> End-to-End Observability</h4>
+            <p>Integrated DynamoDB audit logging recording <code>records_read</code>, <code>records_written</code>, <code>records_rejected</code>, and runtime durations for every stage.</p>
           </div>
         </div>
 
-        <!-- Tech tags -->
-        <div class="tags">
-          <span class="tech-tag">AWS Glue 5.1</span>
-          <span class="tech-tag">Apache Spark / PySpark</span>
-          <span class="tech-tag">AWS Step Functions</span>
-          <span class="tech-tag">AWS Lambda (Python 3.12)</span>
-          <span class="tech-tag">Amazon S3 Medallion</span>
-          <span class="tech-tag">Amazon Athena</span>
-          <span class="tech-tag">Amazon DynamoDB</span>
-          <span class="tech-tag">Amazon SNS</span>
-          <span class="tech-tag">Snappy Parquet</span>
-        </div>
-
-        <div style="margin-top: 2.2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-          <a href="https://github.com/CS-IITB/aws-event-driven-data-pipeline" target="_blank" class="btn btn-gradient">
-            <i class="fa-brands fa-github"></i> Inspect GitHub Repository
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="https://github.com/CS-IITB/aws-event-driven-data-pipeline" target="_blank" class="btn btn-primary">
+            <i class="fa-brands fa-github"></i> View PySpark ETL Scripts & SQL
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Technical Competencies -->
-    <section id="skills">
+    <!-- Data Engineering Pillars -->
+    <section id="competencies">
       <div class="section-header" data-aos="fade-up">
-        <span class="section-eyebrow">Technical Mastery</span>
-        <h2 class="section-title">Core Competencies & Tooling</h2>
+        <span class="section-eyebrow">Technical Expertise</span>
+        <h2 class="section-title">Data Engineering Core Competencies</h2>
       </div>
 
-      <div class="skills-container">
-        <!-- Cloud & Lakehouse -->
-        <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-          <div class="skill-header">
-            <div class="skill-icon icon-blue"><i class="fa-solid fa-cloud"></i></div>
-            <h3>Cloud & Data Lake</h3>
+      <div class="skills-pillar-grid">
+        <!-- Pillar 1: Distributed Data Processing -->
+        <div class="pillar-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="pillar-header">
+            <div class="pillar-icon icon-spark"><i class="fa-solid fa-fire"></i></div>
+            <h3 class="pillar-title">Distributed Processing</h3>
           </div>
-          <ul class="skill-list">
-            <li><i class="fa-solid fa-check"></i> AWS Glue (Python Shell, Spark ETL 5.1)</li>
-            <li><i class="fa-solid fa-check"></i> Amazon S3 Multi-Tier Lifecycle Policies</li>
-            <li><i class="fa-solid fa-check"></i> AWS Step Functions & Lambda Triggers</li>
-            <li><i class="fa-solid fa-check"></i> Amazon Athena & AWS Glue Data Catalog</li>
-            <li><i class="fa-solid fa-check"></i> Azure & Databricks Fundamentals</li>
+          <ul class="pillar-items">
+            <li><i class="fa-solid fa-check"></i> <strong>PySpark & Apache Spark:</strong> RDDs, DataFrames, Spark SQL, DAG execution plans, and Catalyst optimization.</li>
+            <li><i class="fa-solid fa-check"></i> <strong>Shuffle & Memory Tuning:</strong> Broadcast joins, repartitioning, coalesce, and executor DPU rightsizing.</li>
+            <li><i class="fa-solid fa-check"></i> <strong>Storage Formats:</strong> Snappy-compressed Parquet, schema definition, and columnar partition pruning.</li>
+            <li><i class="fa-solid fa-check"></i> <strong>Python Engineering:</strong> Boto3 AWS SDK, automated testing, API ingestion, and memory streaming.</li>
           </ul>
         </div>
 
-        <!-- Distributed Computing -->
-        <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-          <div class="skill-header">
-            <div class="skill-icon icon-purple"><i class="fa-solid fa-network-wired"></i></div>
-            <h3>Distributed Processing</h3>
+        <!-- Pillar 2: SQL, Data Modeling & Warehousing -->
+        <div class="pillar-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="pillar-header">
+            <div class="pillar-icon icon-sql"><i class="fa-solid fa-database"></i></div>
+            <h3 class="pillar-title">SQL & Data Modeling</h3>
           </div>
-          <ul class="skill-list">
-            <li><i class="fa-solid fa-check"></i> PySpark & Distributed DataFrame APIs</li>
-            <li><i class="fa-solid fa-check"></i> Broadcast Joins & Shuffle Optimization</li>
-            <li><i class="fa-solid fa-check"></i> Complex SQL & Analytical Window Functions</li>
-            <li><i class="fa-solid fa-check"></i> Partition Pruning & Columnar Storage</li>
-            <li><i class="fa-solid fa-check"></i> Python (Boto3, Requests, Data Structures)</li>
+          <ul class="pillar-items">
+            <li><i class="fa-solid fa-check"></i> <strong>Advanced SQL:</strong> Window functions, CTEs, self-joins, query plan analysis, and indexing strategies.</li>
+            <li><i class="fa-solid fa-check"></i> <strong>Data Modeling:</strong> Star schema, Snowflake schema, Fact & Dimension tables, and slowly changing dimensions (SCD).</li>
+            <li><i class="fa-solid fa-check"></i> <strong>Query Engines:</strong> Amazon Athena, Google BigQuery, Microsoft SQL Server, and relational databases.</li>
+            <li><i class="fa-solid fa-check"></i> <strong>Analytics Marts:</strong> Aggregation design for high-concurrency business intelligence dashboards (Power BI).</li>
           </ul>
         </div>
 
-        <!-- Governance & BI -->
-        <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
-          <div class="skill-header">
-            <div class="skill-icon icon-emerald"><i class="fa-solid fa-square-poll-vertical"></i></div>
-            <h3>Governance & Analytics</h3>
+        <!-- Pillar 3: Data Lakehouse & Governance -->
+        <div class="pillar-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="pillar-header">
+            <div class="pillar-icon icon-lake"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3 class="pillar-title">Lakehouse & Governance</h3>
           </div>
-          <ul class="skill-list">
-            <li><i class="fa-solid fa-check"></i> DynamoDB Pipeline Audit Logging</li>
-            <li><i class="fa-solid fa-check"></i> Tag-and-Quarantine Data Cleansing</li>
-            <li><i class="fa-solid fa-check"></i> Schema Evolution & DQ Assertions</li>
-            <li><i class="fa-solid fa-check"></i> Power BI Dashboards & Reporting</li>
-            <li><i class="fa-solid fa-check"></i> Financial Risk & Compliance Systems</li>
+          <ul class="pillar-items">
+            <li><i class="fa-solid fa-check"></i> <strong>Medallion Data Lake:</strong> Structuring Bronze, Silver, and Gold tiers in Amazon S3.</li>
+            <li><i class="fa-solid fa-check"></i> <strong>Data Quality & Quarantine:</strong> Deterministic validation assertion rules and automated error segregation.</li>
+            <li><i class="fa-solid fa-check"></i> <strong>Metadata & Catalogs:</strong> AWS Glue Data Catalog, automated crawlers, and schema evolution.</li>
+            <li><i class="fa-solid fa-check"></i> <strong>Audit Logging:</strong> DynamoDB pipeline run tracking and SLA compliance monitoring.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Work Experience & Education -->
+    <!-- Experience & Education -->
     <section id="experience">
       <div class="section-header" data-aos="fade-up">
-        <span class="section-eyebrow">Career Trajectory</span>
-        <h2 class="section-title">Experience & Academic Pedigree</h2>
+        <span class="section-eyebrow">Professional History</span>
+        <h2 class="section-title">Work Experience & Pedigree</h2>
       </div>
 
       <div class="timeline">
-        <!-- Experience Node -->
         <div class="timeline-node" data-aos="fade-up">
           <div class="timeline-marker"></div>
           <div class="timeline-card">
@@ -786,14 +717,14 @@
             </div>
             <div class="timeline-company">Citadel LLC (via House of Code)</div>
             <ul class="timeline-bullets">
-              <li>Lead enterprise systems analysis, high-throughput cloud workflows, and data integration architectures in financial services.</li>
-              <li>Collaborate with cross-functional leadership and business SMEs to build robust data validation and automated compliance risk pipelines.</li>
-              <li>Engineer distributed ETL pipelines, database query tunings, and self-service analytical models using Python, SQL, and cloud services.</li>
+              <li>Architect and maintain enterprise data integration pipelines and validation workflows processing critical financial datasets.</li>
+              <li>Collaborate with business SMEs and stakeholders to design deterministic data quality checks and automated risk reporting schemas.</li>
+              <li>Utilize Python, SQL, BigQuery, and Microsoft SQL Server to optimize analytical data transformations, schema modeling, and reporting models.</li>
+              <li>Enforce strict data governance, compliance validations, and production operational auditability across core analytical environments.</li>
             </ul>
           </div>
         </div>
 
-        <!-- Education Node -->
         <div class="timeline-node" data-aos="fade-up">
           <div class="timeline-marker"></div>
           <div class="timeline-card">
@@ -803,7 +734,7 @@
             </div>
             <div class="timeline-company">Indian Institute of Technology (IIT) Bombay</div>
             <p style="color: var(--text-muted); margin-top: 0.8rem; font-size: 0.95rem;">
-              Rigorous engineering background emphasizing mathematical modeling, scientific computation, distributed logic, and systems engineering.
+              Rigorous engineering education with heavy quantitative analysis, mathematical modeling, algorithmic systems, and scientific computing.
             </p>
           </div>
         </div>
@@ -812,35 +743,50 @@
 
     <!-- Recruiter Action Banner -->
     <section class="recruiter-banner" id="contact" data-aos="zoom-in">
-      <h2>Let's Build Impactful Data Infrastructure</h2>
+      <h2>Looking for a Senior Data Engineer?</h2>
       <p>
-        Currently evaluating Senior AWS Data Engineer, Cloud Data Architect, and Distributed Systems roles. Open to impactful remote and hybrid challenges.
+        Seeking impactful Data Engineering roles specializing in PySpark, Lakehouse architectures, high-scale data modeling, and robust data pipelines.
       </p>
       <div class="cta-row" style="justify-content: center;">
-        <a href="https://github.com/CS-IITB" target="_blank" class="btn btn-gradient">
-          <i class="fa-brands fa-github"></i> Explore GitHub Profile
+        <a href="https://github.com/CS-IITB" target="_blank" class="btn btn-primary">
+          <i class="fa-brands fa-github"></i> Inspect GitHub Repositories
         </a>
-        <a href="https://www.linkedin.com" target="_blank" class="btn btn-glass">
-          <i class="fa-brands fa-linkedin"></i> Message on LinkedIn
+        <a href="https://www.linkedin.com" target="_blank" class="btn btn-secondary">
+          <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
         </a>
       </div>
     </section>
 
     <footer>
-      <p>© 2026 Chandu Soren. Built with clean HTML5/CSS3. Hosted via GitHub Pages.</p>
+      <p>© 2026 Chandu Soren. Data Engineering Portfolio. Hosted via GitHub Pages.</p>
     </footer>
 
   </div>
 
-  <!-- Animations on Scroll (AOS) -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 800,
-      easing: 'ease-out-cubic',
-      once: true,
-      offset: 50
-    });
+    AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+  </script>
+  <script>
+    function copyRecruiterSummary() {
+      const summaryText = `Candidate: Chandu Soren | IIT Bombay Dual Degree
+Role Target: Senior Data Engineer / Cloud Data Engineer
+Experience: 4+ Years (Financial Services / Systems Analysis)
+Core Tech: PySpark, SQL, AWS (Glue, Athena, S3, Step Functions, Lambda, DynamoDB), BigQuery
+Portfolio: https://CS-IITB.github.io/
+Flagship Project: 35M+ NYC TLC Medallion Lakehouse Pipeline (https://github.com/CS-IITB/aws-event-driven-data-pipeline)`;
+
+      navigator.clipboard.writeText(summaryText).then(() => {
+        const btn = document.getElementById('copySummaryBtn');
+        const origHTML = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied to Clipboard!';
+        btn.style.background = '#10b981';
+        setTimeout(() => {
+          btn.innerHTML = origHTML;
+          btn.style.background = '';
+        }, 3000);
+      });
+    }
   </script>
 </body>
 </html>
