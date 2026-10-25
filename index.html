@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chandu Soren | Senior AWS Data Engineer & Cloud Solutions Architect</title>
+  <meta name="description" content="Portfolio of Chandu Soren - Senior AWS Data Engineer, Cloud Solutions Architect, IIT Bombay alumni." />
+  
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --card-border: #30363d;
+      --text-main: #f0f6fc;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-hover: #1f6feb;
+      --badge-bg: #21262d;
+      --tag-color: #3fb950;
+      --transition: all 0.25s ease-in-out;
+    }
+
+    [data-theme="light"] {
+      --bg: #f6f8fa;
+      --card-bg: #ffffff;
+      --card-border: #d0d7de;
+      --text-main: #1f2328;
+      --text-muted: #656d76;
+      --accent: #0969da;
+      --accent-hover: #0550ae;
+      --badge-bg: #eff2f5;
+      --tag-color: #1a7f37;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      transition: var(--transition);
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(12px);
+      background: rgba(13, 17, 23, 0.85);
+      border-bottom: 1px solid var(--card-border);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+    [data-theme="light"] nav { background: rgba(246, 248, 250, 0.85); }
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand { font-weight: 700; font-size: 1.15rem; color: var(--text-main); text-decoration: none; font-family: 'JetBrains Mono', monospace; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; list-style: none; gap: 1.5rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.92rem; font-weight: 500; transition: var(--transition); }
+    .nav-links a:hover { color: var(--accent); }
+    .theme-toggle {
+      background: none; border: 1px solid var(--card-border); color: var(--text-main);
+      padding: 0.4rem 0.75rem; border-radius: 6px; cursor: pointer; transition: var(--transition);
+    }
+    .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Layout Container */
+    .container { max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      padding: 3rem 0 4rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--tag-color);
+      background: var(--badge-bg);
+      padding: 0.35rem 0.8rem;
+      border-radius: 20px;
+      border: 1px solid var(--card-border);
+      width: fit-content;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .hero h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.2; }
+    .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 760px; }
+    .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .btn {
+      padding: 0.65rem 1.3rem; border-radius: 6px; font-weight: 600; text-decoration: none;
+      font-size: 0.95rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: var(--transition);
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-outline { border: 1px solid var(--card-border); color: var(--text-main); background: var(--card-bg); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Sections */
+    section { padding: 3.5rem 0; border-bottom: 1px solid var(--card-border); }
+    section:last-of-type { border-bottom: none; }
+    .section-title { font-size: 1.7rem; font-weight: 700; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.6rem; }
+    .section-title i { color: var(--accent); font-size: 1.4rem; }
+
+    /* Skills Grid */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .skill-card {
+      background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 1.5rem;
+      transition: var(--transition);
+    }
+    .skill-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .skill-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.8rem; }
+    .tag-container { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag {
+      font-size: 0.8rem; background: var(--badge-bg); border: 1px solid var(--card-border);
+      padding: 0.25rem 0.6rem; border-radius: 4px; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);
+    }
+
+    /* Projects */
+    .projects-grid { display: grid; grid-template-columns: 1fr; gap: 1.8rem; }
+    .project-card {
+      background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px;
+      padding: 2rem; transition: var(--transition); position: relative;
+    }
+    .project-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+    .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.8rem; }
+    .project-header h3 { font-size: 1.3rem; font-weight: 700; color: var(--text-main); }
+    .project-links a { color: var(--text-muted); font-size: 1.2rem; margin-left: 0.8rem; transition: var(--transition); }
+    .project-links a:hover { color: var(--accent); }
+    .project-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.2rem; }
+    .project-metrics {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.8rem; margin-bottom: 1.2rem;
+      background: var(--badge-bg); padding: 0.8rem 1rem; border-radius: 6px; border: 1px solid var(--card-border);
+    }
+    .metric-item { font-size: 0.85rem; color: var(--text-muted); }
+    .metric-item strong { display: block; font-size: 1rem; color: var(--text-main); font-family: 'JetBrains Mono', monospace; }
+
+    /* Experience & Education */
+    .timeline { position: relative; border-left: 2px solid var(--card-border); margin-left: 1rem; padding-left: 1.5rem; }
+    .timeline-item { position: relative; margin-bottom: 2rem; }
+    .timeline-dot {
+      position: absolute; left: calc(-1.5rem - 7px); top: 5px; width: 12px; height: 12px;
+      border-radius: 50%; background: var(--accent); border: 3px solid var(--bg);
+    }
+    .timeline-header { margin-bottom: 0.3rem; }
+    .timeline-role { font-size: 1.15rem; font-weight: 700; color: var(--text-main); }
+    .timeline-meta { font-size: 0.85rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+    .timeline-desc { margin-top: 0.6rem; color: var(--text-muted); font-size: 0.92rem; }
+
+    /* Footer */
+    footer { text-align: center; padding: 3rem 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--card-border); }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.1rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="brand">chandu<span>.dev</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" title="Toggle Light/Dark Theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- Hero Section -->
+    <header class="hero" id="about">
+      <span class="hero-tag">🚀 Senior AWS Data Engineer & Cloud Solutions Architect</span>
+      <h1>Chandu Soren</h1>
+      <p>
+        B.Tech & M.Tech from <strong>IIT Bombay</strong> with 4+ years of enterprise experience building high-throughput distributed data pipelines, cloud data lakes, and serverless analytics platforms.
+      </p>
+      <div class="hero-links">
+        <a href="https://github.com/CS-IITB" target="_blank" class="btn btn-outline">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" class="btn btn-outline">
+          <i class="fa-brands fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="#projects" class="btn btn-primary">
+          <i class="fa-solid fa-laptop-code"></i> Explore Projects
+        </a>
+      </div>
+    </header>
+
+    <!-- Featured Projects -->
+    <section id="projects">
+      <h2 class="section-title"><i class="fa-solid fa-code-fork"></i> Featured Engineering Projects</h2>
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <article class="project-card">
+          <div class="project-header">
+            <h3>Serverless Event-Driven Mobility Analytics Platform</h3>
+            <div class="project-links">
+              <a href="https://github.com/CS-IITB/aws-event-driven-data-pipeline" target="_blank" title="View Repository"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+          <p>
+            An end-to-end, event-driven data lakehouse pipeline processing 35M+ NYC TLC trip records across a multi-tier Medallion architecture (Raw &rarr; Curated &rarr; Aggregated). Features deterministic data quality quarantine, custom DPU tuning, and storage lifecycle tiering.
+          </p>
+          <div class="project-metrics">
+            <div class="metric-item">
+              <span>Data Volume</span>
+              <strong>35M+ Records</strong>
+            </div>
+            <div class="metric-item">
+              <span>Cost Optimization</span>
+              <strong>~50% DPU reduction</strong>
+            </div>
+            <div class="metric-item">
+              <span>Storage TCO</span>
+              <strong>~60% S3 savings</strong>
+            </div>
+          </div>
+          <div class="tag-container">
+            <span class="tag">AWS Glue 5.1</span>
+            <span class="tag">PySpark</span>
+            <span class="tag">AWS Step Functions</span>
+            <span class="tag">AWS Lambda</span>
+            <span class="tag">Amazon Athena</span>
+            <span class="tag">Amazon DynamoDB</span>
+            <span class="tag">Parquet / Snappy</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2 class="section-title"><i class="fa-solid fa-cubes-stacked"></i> Technical Competencies</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Cloud & Data Lake Infrastructure</h3>
+          <div class="tag-container">
+            <span class="tag">AWS (Glue, S3, Athena, Step Functions, Lambda)</span>
+            <span class="tag">Azure Fundamentals</span>
+            <span class="tag">Databricks Fundamentals</span>
+            <span class="tag">Google BigQuery</span>
+            <span class="tag">Medallion Lakehouse</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Data Processing & Engineering</h3>
+          <div class="tag-container">
+            <span class="tag">Python</span>
+            <span class="tag">PySpark</span>
+            <span class="tag">Advanced SQL</span>
+            <span class="tag">Data Modeling</span>
+            <span class="tag">ETL Optimization</span>
+            <span class="tag">Columnar Parquet</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Governance, Validation & BI</h3>
+          <div class="tag-container">
+            <span class="tag">Data Quality & Validation</span>
+            <span class="tag">Schema Evolution</span>
+            <span class="tag">Audit Logging (DynamoDB)</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">REST APIs</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience & Education -->
+    <section id="experience">
+      <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Experience & Education</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div class="timeline-role">Applications Development Programmer Analyst / Systems Analyst</div>
+            <div class="timeline-meta">Citadel LLC | Aug 2022 – Present</div>
+          </div>
+          <div class="timeline-desc">
+            Lead technical requirements analysis, cloud data workflows, systems architecture, data validation, and enterprise risk and compliance analytics in the financial services domain.
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div class="timeline-role">Dual Degree (B.Tech + M.Tech)</div>
+            <div class="timeline-meta">Indian Institute of Technology (IIT) Bombay</div>
+          </div>
+          <div class="timeline-desc">
+            Rigorous engineering training in quantitative analysis, modeling, computing, and complex systems.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2 class="section-title"><i class="fa-solid fa-envelope"></i> Get In Touch</h2>
+      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+        Open to discussions on cloud data lake architecture, distributed data engineering, and senior cloud solution consulting.
+      </p>
+      <div class="hero-links">
+        <a href="https://github.com/CS-IITB" target="_blank" class="btn btn-outline">
+          <i class="fa-brands fa-github"></i> GitHub Profile
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" class="btn btn-outline">
+          <i class="fa-brands fa-linkedin"></i> LinkedIn Message
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Chandu Soren. Hosted on GitHub Pages.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    // Simple Theme Toggle
+    const toggleBtn = document.getElementById('themeToggle');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+
+    if (currentTheme === 'light') {
+      document.body.setAttribute('data-theme', 'light');
+      toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      const isLight = document.body.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.body.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+        toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+      } else {
+        document.body.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+      }
+    });
+  </script>
+</body>
+</html>
